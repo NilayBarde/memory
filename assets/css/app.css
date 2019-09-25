@@ -3,11 +3,36 @@
 @import "~milligram/dist/milligram";
 
 .column > p {
-    padding-top: 10ex;
     text-align: center;
 }
 
 .gameboardrow {
-    background-color: red;
+    outline-style: solid;
+
+}
+.gameboardrow:hover {
+  background-color: red;
 }
 
+.gameboardrow p {
+  text-align: center;
+  font-size: 32px;
+  padding-top: 32%;
+}
+
+.wrap {
+    display: grid;
+    grid-template-columns: 125px 125px 125px 125px;
+    grid-template-rows: 125px 125px 125px 125px;
+    grid-gap: 10px;
+    background-color: #fff;
+    color: #444;
+  }
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
