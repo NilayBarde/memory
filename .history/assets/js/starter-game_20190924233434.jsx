@@ -54,7 +54,7 @@ class Starter extends React.Component {
 	 
     render() {
 	return <div class = "wrap">
-		<Row id="0" onClick={this.isNotSameClose}>{this.state.array[0]}</Row>
+		<Row id="0" onClick = {this.isNotSameClose}>{this.state.array[0]}</Row>
 		<Row id="1" onClick={this.isNotSameClose}>{this.state.array[1]}</Row>
 		<Row id="2" onClick={this.isNotSameClose}>{this.state.array[2]}</Row>
 		<Row id="3" onClick={this.isNotSameClose}>{this.state.array[3]}</Row>

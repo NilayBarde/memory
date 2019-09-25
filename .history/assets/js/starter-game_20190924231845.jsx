@@ -44,17 +44,17 @@ class Starter extends React.Component {
 		}
 		else if(this.state.clicked[0] == letter) {
 			console.log("IS THE SAME");
-			this.state.clicked = [];
+			this.state.clicked = null;
 		}
 		else {
 			console.log("NOT THE SAME");
-			this.state.clicked = [];
+			this.state.clicked = null;
 		}
 	}
 	 
     render() {
 	return <div class = "wrap">
-		<Row id="0" onClick={this.isNotSameClose}>{this.state.array[0]}</Row>
+		<Row id="0" onClick = {this.isNotSameClose}>{this.state.array[0]}</Row>
 		<Row id="1" onClick={this.isNotSameClose}>{this.state.array[1]}</Row>
 		<Row id="2" onClick={this.isNotSameClose}>{this.state.array[2]}</Row>
 		<Row id="3" onClick={this.isNotSameClose}>{this.state.array[3]}</Row>
@@ -70,7 +70,7 @@ class Starter extends React.Component {
 		<Row id="13" onClick={this.isNotSameClose}>{this.state.array2[5]}</Row>
 		<Row id="14" onClick={this.isNotSameClose}>{this.state.array2[6]}</Row>
 		<Row id="15" onClick={this.isNotSameClose}>{this.state.array2[7]}</Row>
-		<button onClick={this.restart}>Restart Game</button>
+		<button onClick={this.restart}>Restart Button</button>
 	    	</div>
 	}
   }

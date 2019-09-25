@@ -39,38 +39,27 @@ class Starter extends React.Component {
 
 	isNotSameClose(letter) {
 		console.log(letter);
-		if(this.state.clicked.length == 0) {
-			this.state.clicked.push(letter);
-		}
-		else if(this.state.clicked[0] == letter) {
-			console.log("IS THE SAME");
-			this.state.clicked = [];
-		}
-		else {
-			console.log("NOT THE SAME");
-			this.state.clicked = [];
-		}
 	}
 	 
     render() {
 	return <div class = "wrap">
-		<Row id="0" onClick={this.isNotSameClose}>{this.state.array[0]}</Row>
+		<Row id="0" onClick = {this.isNotSameClose}>{this.state.array[0]}</Row>
 		<Row id="1" onClick={this.isNotSameClose}>{this.state.array[1]}</Row>
 		<Row id="2" onClick={this.isNotSameClose}>{this.state.array[2]}</Row>
-		<Row id="3" onClick={this.isNotSameClose}>{this.state.array[3]}</Row>
-		<Row id="4" onClick={this.isNotSameClose}>{this.state.array[4]}</Row>
-		<Row id="5" onClick={this.isNotSameClose}>{this.state.array[5]}</Row>
-		<Row id="6" onClick={this.isNotSameClose}>{this.state.array[6]}</Row>
-		<Row id="7" onClick={this.isNotSameClose}>{this.state.array[7]}</Row>
-		<Row id="8" onClick={this.isNotSameClose}>{this.state.array2[0]}</Row>
-		<Row id="9" onClick={this.isNotSameClose}>{this.state.array2[1]}</Row>
-		<Row id="10" onClick={this.isNotSameClose}>{this.state.array2[2]}</Row>
-		<Row id="11" onClick={this.isNotSameClose}>{this.state.array2[3]}</Row>
-		<Row id="12" onClick={this.isNotSameClose}>{this.state.array2[4]}</Row>
-		<Row id="13" onClick={this.isNotSameClose}>{this.state.array2[5]}</Row>
-		<Row id="14" onClick={this.isNotSameClose}>{this.state.array2[6]}</Row>
-		<Row id="15" onClick={this.isNotSameClose}>{this.state.array2[7]}</Row>
-		<button onClick={this.restart}>Restart Game</button>
+		<Row id="3" onClick={this.isNotSameClose(this.props.children)}>{this.state.array[3]}</Row>
+		<Row id="4" onClick={this.isNotSameClose(this.props.children)}>{this.state.array[4]}</Row>
+		<Row id="5" onClick={this.isNotSameClose(this.props.children)}>{this.state.array[5]}</Row>
+		<Row id="6" onClick={this.isNotSameClose(this.props.children)}>{this.state.array[6]}</Row>
+		<Row id="7" onClick={this.isNotSameClose(this.props.children)}>{this.state.array[7]}</Row>
+		<Row id="8" onClick={this.isNotSameClose(this.props.children)}>{this.state.array2[0]}</Row>
+		<Row id="9" onClick={this.isNotSameClose(this.props.children)}>{this.state.array2[1]}</Row>
+		<Row id="10" onClick={this.isNotSameClose(this.props.children)}>{this.state.array2[2]}</Row>
+		<Row id="11" onClick={this.isNotSameClose(this.props.children)}>{this.state.array2[3]}</Row>
+		<Row id="12" onClick={this.isNotSameClose(this.props.children)}>{this.state.array2[4]}</Row>
+		<Row id="13" onClick={this.isNotSameClose(this.props.children)}>{this.state.array2[5]}</Row>
+		<Row id="14" onClick={this.isNotSameClose(this.props.children)}>{this.state.array2[6]}</Row>
+		<Row id="15" onClick={this.isNotSameClose(this.props.children)}>{this.state.array2[7]}</Row>
+		<button onClick={this.restart}>Restart Button</button>
 	    	</div>
 	}
   }

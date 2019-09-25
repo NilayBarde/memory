@@ -6,6 +6,8 @@ export default function game_init(root) {
   ReactDOM.render(<Starter />, root);
 }
 
+
+
 class Starter extends React.Component {
 	constructor(params) {
 		super(params);
@@ -14,6 +16,7 @@ class Starter extends React.Component {
 			array: this.boardGenerator(),
 			array2: this.boardGenerator(),
 			clicked: []
+			//array of booleans
 		};
 		this.isNotSameClose = this.isNotSameClose.bind(this);
 	}
@@ -54,7 +57,7 @@ class Starter extends React.Component {
 	 
     render() {
 	return <div class = "wrap">
-		<Row id="0" onClick={this.isNotSameClose}>{this.state.array[0]}</Row>
+		<Row id="0" onClick = {this.isNotSameClose}>{this.state.array[0]}</Row>
 		<Row id="1" onClick={this.isNotSameClose}>{this.state.array[1]}</Row>
 		<Row id="2" onClick={this.isNotSameClose}>{this.state.array[2]}</Row>
 		<Row id="3" onClick={this.isNotSameClose}>{this.state.array[3]}</Row>

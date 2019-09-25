@@ -48,6 +48,7 @@ class Starter extends React.Component {
 		}
 		else {
 			console.log("NOT THE SAME");
+			this.setState({visibile: false})
 			this.state.clicked = [];
 		}
 	}

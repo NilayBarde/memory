@@ -6,6 +6,36 @@ export default function game_init(root) {
   ReactDOM.render(<Starter />, root);
 }
 
+class BoardGenerator extends React.Component {
+	constructor(params) {
+		super(params);
+
+		this.state = {
+			array: this.boardGenerator(),
+			array2: this.boardGenerator(),
+			clicked: []
+		};
+
+		this.isNotSameClose = this.isNotSameClose.bind(this);
+	}
+
+	//Randomize an array: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array 
+	boardGenerator() {
+		var lettersList = ["A", "B", "C", "D", "E", "F", "G", "H"];
+		var curr = lettersList.length, temp, randIndex;
+	
+		while (0 != curr) {
+			randIndex = Math.floor(Math.random() * curr);
+			curr -= 1;
+			temp = lettersList[curr];
+			lettersList[curr] = lettersList[randIndex];
+			lettersList[randIndex] = temp;
+		}
+		return lettersList;
+	  }	
+
+}
+
 class Starter extends React.Component {
 	constructor(params) {
 		super(params);
@@ -14,6 +44,7 @@ class Starter extends React.Component {
 			array: this.boardGenerator(),
 			array2: this.boardGenerator(),
 			clicked: []
+			//array of booleans
 		};
 		this.isNotSameClose = this.isNotSameClose.bind(this);
 	}
@@ -54,7 +85,7 @@ class Starter extends React.Component {
 	 
     render() {
 	return <div class = "wrap">
-		<Row id="0" onClick={this.isNotSameClose}>{this.state.array[0]}</Row>
+		<Row id="0" onClick = {this.isNotSameClose}>{this.state.array[0]}</Row>
 		<Row id="1" onClick={this.isNotSameClose}>{this.state.array[1]}</Row>
 		<Row id="2" onClick={this.isNotSameClose}>{this.state.array[2]}</Row>
 		<Row id="3" onClick={this.isNotSameClose}>{this.state.array[3]}</Row>
