@@ -42,10 +42,9 @@ class Starter extends React.Component {
 	}
 
 	isNotSameClose(letter, index) {
-		if(!this.state.visibleArray[index]) {
-			console.log(letter);
-			const newVisibleArray = Array.from(this.state.visibleArray);	
-		
+		console.log(letter);
+		const newVisibleArray = Array.from(this.state.visibleArray);
+		if(!visibleArray[index]) {
 		newVisibleArray[index] = true;
 		this.setState({
 			visibleArray: newVisibleArray,

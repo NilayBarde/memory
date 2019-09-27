@@ -36,6 +36,7 @@
     font-size: 150%;
 }
 
-#restart {
-    padding-left: 13px;
+.button {
+    padding: 10px 20px;
+    font-size: 9px;
 }

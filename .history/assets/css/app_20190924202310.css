@@ -1,22 +1,23 @@
 /* This file is for your main application css. */
 
 @import "~milligram/dist/milligram";
-.column>p {
+
+.column > p {
     text-align: center;
 }
 
 .gameboardrow {
     outline-style: solid;
-}
 
+}
 .gameboardrow:hover {
-    background-color: red;
+  background-color: red;
 }
 
 .gameboardrow p {
-    text-align: center;
-    font-size: 32px;
-    padding-top: 32%;
+  text-align: center;
+  font-size: 32px;
+  padding-top: 32%;
 }
 
 .wrap {
@@ -26,16 +27,12 @@
     grid-gap: 10px;
     background-color: #fff;
     color: #444;
-}
+  }
 
 .box {
-    background-color: #444;
-    color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 150%;
-}
-
-#restart {
-    padding-left: 13px;
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
 }

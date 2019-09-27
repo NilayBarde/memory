@@ -42,15 +42,13 @@ class Starter extends React.Component {
 	}
 
 	isNotSameClose(letter, index) {
-		if(!this.state.visibleArray[index]) {
-			console.log(letter);
-			const newVisibleArray = Array.from(this.state.visibleArray);	
-		
+		console.log(letter);
+		const newVisibleArray = Array.from(this.state.visibleArray);
 		newVisibleArray[index] = true;
 		this.setState({
 			visibleArray: newVisibleArray,
 		})
-
+		
 		if(this.state.clicked.length == 0) {
 			this.setState({
 				clicked: [letter, index]
@@ -81,7 +79,6 @@ class Starter extends React.Component {
 			}, 850)
 		}
 	}
-}
 	 
     render() {
 		const { visibleArray, randomBoard } = this.state;

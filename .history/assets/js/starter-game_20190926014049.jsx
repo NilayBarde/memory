@@ -9,6 +9,7 @@ export default function game_init(root) {
 class Starter extends React.Component {
 	constructor(params) {
 		super(params);
+
 		this.state = {
 			randomBoard: this.boardGenerator(),
 			clicked: [],
@@ -34,7 +35,7 @@ class Starter extends React.Component {
   }
 
     restart() { 
-	   location.reload();
+       location.reload();
 	}
 
 	changeRowState(event) {
@@ -42,23 +43,21 @@ class Starter extends React.Component {
 	}
 
 	isNotSameClose(letter, index) {
-		if(!this.state.visibleArray[index]) {
-			console.log(letter);
-			const newVisibleArray = Array.from(this.state.visibleArray);	
-		
+		console.log(letter);
+		const newVisibleArray = Array.from(this.state.visibleArray);
+		// const newCountClicked = this.state.countClicked + 1;
 		newVisibleArray[index] = true;
 		this.setState({
 			visibleArray: newVisibleArray,
+			// countClicked: newCountClicked
 		})
-
 		if(this.state.clicked.length == 0) {
 			this.setState({
 				clicked: [letter, index]
 			});
 		}
-
 		else if(this.state.clicked[0] == letter && this.state.clicked[1] != index) {
-			const newCountClicked = this.state.countClicked + 5;
+			const newCountClicked = this.state.countClicked + 3;
 			console.log("IS THE SAME");
 			this.setState({
 				clicked: [],
@@ -67,7 +66,6 @@ class Starter extends React.Component {
 		}
 		else {
 			console.log("NOT THE SAME");
-			const newCountClicked = this.state.countClicked - 1;
 			setTimeout(() => {
 				newVisibleArray[index] = false;
 				newVisibleArray[this.state.clicked[1]] = false;
@@ -78,23 +76,24 @@ class Starter extends React.Component {
 				this.setState({
 					visibleArray: newVisibleArray,
 				})
-			}, 850)
+			}, 1000)
 		}
 	}
-}
 	 
     render() {
+		
 		const { visibleArray, randomBoard } = this.state;
 		console.log(visibleArray);
-		return <div class = "wrap">
-			{visibleArray.map((val, index) => {
-				return <Row id={index} onClick={this.isNotSameClose} visible={val}>{randomBoard[index]}</Row>;
-			})}
-			<h1>Score:</h1>
-			<h1>{this.state.countClicked}</h1>
-			<h1></h1>
-			<button id="restart" onClick={this.restart}>Restart Game</button>
-		    	</div>
+	return <div class = "wrap">
+		{visibleArray.map((val, index) => {
+			return <Row id={index} onClick={this.isNotSameClose} visible={val}>{randomBoard[index]}</Row>;
+		})}
+		<h1>Score:</h1>
+		<h1>{this.state.countClicked
+			}</h1>
+		<h1></h1>
+		<button id="restart" onClick={this.restart}>Restart Game</button>
+	    	</div>
 	}
   }
 

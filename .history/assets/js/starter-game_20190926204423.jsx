@@ -42,21 +42,15 @@ class Starter extends React.Component {
 	}
 
 	isNotSameClose(letter, index) {
-		if(!this.state.visibleArray[index]) {
-			console.log(letter);
-			const newVisibleArray = Array.from(this.state.visibleArray);	
-		
+		console.log(letter);
+		const newVisibleArray = Array.from(this.state.visibleArray);
 		newVisibleArray[index] = true;
 		this.setState({
 			visibleArray: newVisibleArray,
 		})
-
-		if(this.state.clicked.length == 0) {
 			this.setState({
 				clicked: [letter, index]
 			});
-		}
-
 		else if(this.state.clicked[0] == letter && this.state.clicked[1] != index) {
 			const newCountClicked = this.state.countClicked + 5;
 			console.log("IS THE SAME");
@@ -81,7 +75,6 @@ class Starter extends React.Component {
 			}, 850)
 		}
 	}
-}
 	 
     render() {
 		const { visibleArray, randomBoard } = this.state;

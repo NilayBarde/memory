@@ -34,29 +34,29 @@ class Starter extends React.Component {
   }
 
     restart() { 
-	   location.reload();
-	}
+	//    location.reload();
+	const arr = this.boardGenerator();
+	this.setState({
+		randomBoard: this.boardGenerator()
+	})
+}
 
 	changeRowState(event) {
 		this.setState({visible: false})
 	}
 
 	isNotSameClose(letter, index) {
-		if(!this.state.visibleArray[index]) {
-			console.log(letter);
-			const newVisibleArray = Array.from(this.state.visibleArray);	
-		
+		console.log(letter);
+		const newVisibleArray = Array.from(this.state.visibleArray);
 		newVisibleArray[index] = true;
 		this.setState({
 			visibleArray: newVisibleArray,
 		})
-
 		if(this.state.clicked.length == 0) {
 			this.setState({
 				clicked: [letter, index]
 			});
 		}
-
 		else if(this.state.clicked[0] == letter && this.state.clicked[1] != index) {
 			const newCountClicked = this.state.countClicked + 5;
 			console.log("IS THE SAME");
@@ -81,7 +81,6 @@ class Starter extends React.Component {
 			}, 850)
 		}
 	}
-}
 	 
     render() {
 		const { visibleArray, randomBoard } = this.state;
@@ -91,7 +90,8 @@ class Starter extends React.Component {
 				return <Row id={index} onClick={this.isNotSameClose} visible={val}>{randomBoard[index]}</Row>;
 			})}
 			<h1>Score:</h1>
-			<h1>{this.state.countClicked}</h1>
+			<h1>{this.state.countClicked
+				}</h1>
 			<h1></h1>
 			<button id="restart" onClick={this.restart}>Restart Game</button>
 		    	</div>
