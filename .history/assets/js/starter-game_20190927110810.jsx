@@ -43,13 +43,14 @@ class Starter extends React.Component {
 			const newVisibleArray = Array.from(this.state.visibleArray);
 
 			newVisibleArray[index] = true;
-			this.setState({
-				visibleArray: newVisibleArray,
-			})
+			// this.setState({
+			// 	visibleArray: newVisibleArray,
+			// })
 
 			if (this.state.clicked.length == 0) {
 				this.setState({
-					clicked: [letter, index]
+					clicked: [letter, index],
+					visibleArray: newVisibleArray
 				});
 			}
 
@@ -58,7 +59,8 @@ class Starter extends React.Component {
 				console.log("IS THE SAME");
 				this.setState({
 					clicked: [],
-					countClicked: newCountClicked
+					countClicked: newCountClicked,
+					visibleArray: newVisibleArray
 				});
 			}
 			else {
@@ -70,6 +72,7 @@ class Starter extends React.Component {
 					this.setState({
 						clicked: [],
 						countClicked: newCountClicked,
+						visibleArray: newVisibleArray,
 						visibleArray: newVisibleArray
 					});
 				}, 850)
@@ -93,10 +96,6 @@ class Starter extends React.Component {
 }
 
 class Row extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		return <div className="gameboardrow" onClick={() => {
 			this.props.onClick(this.props.children, this.props.id);

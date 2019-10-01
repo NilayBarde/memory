@@ -4,7 +4,7 @@ defmodule Memory.Game do
             randomboard: board_generate(),
             clicked: [],
             visibleArray: new Array(16).fill(false),
-			countClicked: 0,
+			countClicked: 0
         }
     end
 end

@@ -93,10 +93,6 @@ class Starter extends React.Component {
 }
 
 class Row extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 	render() {
 		return <div className="gameboardrow" onClick={() => {
 			this.props.onClick(this.props.children, this.props.id);
