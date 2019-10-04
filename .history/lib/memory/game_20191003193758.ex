@@ -11,9 +11,9 @@ defmodule Memory.Game do
       gs = game.guesses
       %{
         randomBoard: skeleton(ws, gs),
-        clicked: Enum.filter(gs, &(Enum.member?(ws, &1))),
-        visibleArray: Enum.filter(gs, &(!Enum.member?(ws, &1))),
-        countClicked: max_guesses(),
+        goods: Enum.filter(gs, &(Enum.member?(ws, &1))),
+        bads: Enum.filter(gs, &(!Enum.member?(ws, &1))),
+        max: max_guesses(),
       }
     end
   

@@ -10,10 +10,10 @@ defmodule Memory.Game do
       ws = String.graphemes(game.word)
       gs = game.guesses
       %{
-        randomBoard: skeleton(ws, gs),
-        clicked: Enum.filter(gs, &(Enum.member?(ws, &1))),
-        visibleArray: Enum.filter(gs, &(!Enum.member?(ws, &1))),
-        countClicked: max_guesses(),
+        skel: skeleton(ws, gs),
+        goods: Enum.filter(gs, &(Enum.member?(ws, &1))),
+        bads: Enum.filter(gs, &(!Enum.member?(ws, &1))),
+        max: max_guesses(),
       }
     end
   

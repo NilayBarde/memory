@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import _ from 'lodash';
 
 export default function game_init(root) {
-	ReactDOM.render(<Starter />, root);
+	ReactDOM.render(<Memory channel={channel}, root);
 }
 
 class Starter extends React.Component {
 	constructor(params) {
 		super(params);
+
+		this.channel = props.channel;
+
 		this.state = {
 			randomBoard: this.boardGenerator(),
 			clicked: [],
@@ -16,6 +19,11 @@ class Starter extends React.Component {
 			countClicked: 0
 		};
 		this.isNotSameClose = this.isNotSameClose.bind(this);
+
+		this.channel.join()
+		.receive("ok", this.onJoin.bind(this))
+		.receive("error", resp => { console.log("Unable to join", resp) });
+
 	}
 
 	//Randomize an array: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array 
