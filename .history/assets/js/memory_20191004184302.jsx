@@ -15,7 +15,7 @@ class Memory extends React.Component {
 		this.state = {
 			randomBoard: [],
 			clicked: [],
-      visibleArray: new Array(16).fill(false),
+			visibleArray: [],
 			countClicked: 0
 		};
 		this.isNotSameClose = this.isNotSameClose.bind(this);
@@ -31,19 +31,19 @@ class Memory extends React.Component {
   }
 
 	//Randomize an array: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array 
-	boardGenerator() {
-		var lettersList = ["A", "B", "C", "D", "E", "F", "G", "H", "A", "B", "C", "D", "E", "F", "G", "H"];
-		var curr = lettersList.length, temp, randIndex;
+	// boardGenerator() {
+	// 	var lettersList = ["A", "B", "C", "D", "E", "F", "G", "H", "A", "B", "C", "D", "E", "F", "G", "H"];
+	// 	var curr = lettersList.length, temp, randIndex;
 
-		while (0 != curr) {
-			randIndex = Math.floor(Math.random() * curr);
-			curr -= 1;
-			temp = lettersList[curr];
-			lettersList[curr] = lettersList[randIndex];
-			lettersList[randIndex] = temp;
-		}
-		return lettersList;
-	}
+	// 	while (0 != curr) {
+	// 		randIndex = Math.floor(Math.random() * curr);
+	// 		curr -= 1;
+	// 		temp = lettersList[curr];
+	// 		lettersList[curr] = lettersList[randIndex];
+	// 		lettersList[randIndex] = temp;
+	// 	}
+	// 	return lettersList;
+	// }
 
 	restart() {
 		location.reload();
@@ -90,8 +90,8 @@ class Memory extends React.Component {
 	}
 
 	render() {
-		const { visibleArray, randomBoard } = this.state;
-    console.log(visibleArray);
+		const { visibleArray, view.game.randomBoard } = this.state;
+		console.log(visibleArray);
 		return <div class="wrap">
 			{visibleArray.map((val, index) => {
 				return <Row id={index} onClick={this.isNotSameClose} visible={val}>{randomBoard[index]}</Row>;

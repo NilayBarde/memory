@@ -10,7 +10,7 @@ class Memory extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.channel = props.channel;
+		//this.channel = props.channel;
 
 		this.state = {
 			randomBoard: [],

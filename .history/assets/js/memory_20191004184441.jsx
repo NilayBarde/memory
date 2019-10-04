@@ -13,9 +13,9 @@ class Memory extends React.Component {
 		this.channel = props.channel;
 
 		this.state = {
-			randomBoard: [],
+			randomBoard: this.boar,
 			clicked: [],
-      visibleArray: new Array(16).fill(false),
+			visibleArray: [],
 			countClicked: 0
 		};
 		this.isNotSameClose = this.isNotSameClose.bind(this);
@@ -91,7 +91,7 @@ class Memory extends React.Component {
 
 	render() {
 		const { visibleArray, randomBoard } = this.state;
-    console.log(visibleArray);
+		console.log(visibleArray);
 		return <div class="wrap">
 			{visibleArray.map((val, index) => {
 				return <Row id={index} onClick={this.isNotSameClose} visible={val}>{randomBoard[index]}</Row>;

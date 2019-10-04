@@ -46,8 +46,7 @@ class Memory extends React.Component {
 	}
 
 	restart() {
-		location.reload();
-	}
+=	}
 
 	isNotSameClose(letter, index) {
 		if (!this.state.visibleArray[index]) {

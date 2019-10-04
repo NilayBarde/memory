@@ -13,16 +13,16 @@ class Memory extends React.Component {
 		this.channel = props.channel;
 
 		this.state = {
-			randomBoard: [],
+			randomBoard: this.boardGenerator(),
 			clicked: [],
-      visibleArray: new Array(16).fill(false),
+			visibleArray: [],
 			countClicked: 0
 		};
 		this.isNotSameClose = this.isNotSameClose.bind(this);
 
-		this.channel.join()
-		.receive("ok", this.getView.bind(this))
-		.receive("error", resp => { console.log("Unable to join", resp) });
+		// this.channel.join()
+		// .receive("ok", this.getView.bind(this))
+		// .receive("error", resp => { console.log("Unable to join", resp) });
   }
   
   getView(view) {
@@ -91,7 +91,7 @@ class Memory extends React.Component {
 
 	render() {
 		const { visibleArray, randomBoard } = this.state;
-    console.log(visibleArray);
+		console.log(visibleArray);
 		return <div class="wrap">
 			{visibleArray.map((val, index) => {
 				return <Row id={index} onClick={this.isNotSameClose} visible={val}>{randomBoard[index]}</Row>;

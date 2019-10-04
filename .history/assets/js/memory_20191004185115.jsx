@@ -10,25 +10,25 @@ class Memory extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.channel = props.channel;
+		//this.channel = props.channel;
 
 		this.state = {
-			randomBoard: [],
+			randomBoard: this.boardGenerator(),
 			clicked: [],
-      visibleArray: new Array(16).fill(false),
+			visibleArray: [],
 			countClicked: 0
 		};
 		this.isNotSameClose = this.isNotSameClose.bind(this);
 
-		this.channel.join()
-		.receive("ok", this.getView.bind(this))
-		.receive("error", resp => { console.log("Unable to join", resp) });
+		// this.channel.join()
+		// .receive("ok", this.getView.bind(this))
+		// .receive("error", resp => { console.log("Unable to join", resp) });
   }
   
-  getView(view) {
-    console.log("View", view);
-    this.setState(view.game)
-  }
+  // getView(view) {
+  //   console.log("View", view);
+  //   this.setState(view.game)
+  // }
 
 	//Randomize an array: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array 
 	boardGenerator() {
@@ -92,6 +92,7 @@ class Memory extends React.Component {
 	render() {
 		const { visibleArray, randomBoard } = this.state;
     console.log(visibleArray);
+    console.log(this.state.randomBoard);
 		return <div class="wrap">
 			{visibleArray.map((val, index) => {
 				return <Row id={index} onClick={this.isNotSameClose} visible={val}>{randomBoard[index]}</Row>;

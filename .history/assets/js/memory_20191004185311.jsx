@@ -10,7 +10,7 @@ class Memory extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.channel = props.channel;
+		//this.channel = props.channel;
 
 		this.state = {
 			randomBoard: [],
@@ -25,10 +25,10 @@ class Memory extends React.Component {
 		.receive("error", resp => { console.log("Unable to join", resp) });
   }
   
-  getView(view) {
-    console.log("View", view);
-    this.setState(view.game)
-  }
+  // getView(view) {
+  //   console.log("View", view);
+  //   this.setState(view.game)
+  // }
 
 	//Randomize an array: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array 
 	boardGenerator() {

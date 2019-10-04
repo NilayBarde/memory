@@ -46,7 +46,12 @@ class Memory extends React.Component {
 	}
 
 	restart() {
-		location.reload();
+    this.setState({
+      randomBoard: [],
+      visibleArray: new Array(16).fill(false),
+      clicked: [],
+      countClicked: 0
+    })
 	}
 
 	isNotSameClose(letter, index) {

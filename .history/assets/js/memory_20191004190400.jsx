@@ -46,7 +46,7 @@ class Memory extends React.Component {
 	}
 
 	restart() {
-		location.reload();
+    let randomBoard = this.boardGenerator();
 	}
 
 	isNotSameClose(letter, index) {
